@@ -1,0 +1,25 @@
+<section id="portfolio">
+	<div class="container">
+		<div class="row text-primary">
+			<h3>Cricket News</h3>
+		</div>
+		<div class="row">
+			<% news = @news['data']%>
+			<% news['data'].each do |type| %>
+
+			<div class="cb-col cb-col-100 cb-lst-itm cb-lst-itm-lg">
+
+				<div class="cb-col-67 cb-nws-lst-rt cb-col cb-col-text-container">
+					<b class="cb-nws-hdln cb-font-18 line-ht24"><b class="cb-nws-hdln-ancr"
+					title="<%= type['title'].html_safe %>"><%= type['title'].html_safe %></b></b>
+					<div class="cb-nws-intr">
+						<%= type['description'].html_safe %>
+					</div>
+				</div>
+
+			</div>
+			<% end %>
+		</div>
+	</div>
+</section>
+
