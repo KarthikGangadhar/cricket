@@ -10,6 +10,8 @@ class CricketController < ApplicationController
       @commentry = cricApires.commentry(1034821)
       @news = cricApires.getNews
       @ballbyball = cricApires.ballByball(1034823)
+      @match_ids = cricApires.match_ids
+      @match_response = cricApires.match_response(@match_ids)
     else
       @cricket = cricApires.jsonRead('./lib/cricket_api/json_data/cricket.json')
       @matchCalendar = cricApires.jsonRead('./lib/cricket_api/json_data/schedule.json')
@@ -17,6 +19,8 @@ class CricketController < ApplicationController
       @commentry = cricApires.jsonRead('./lib/cricket_api/json_data/commentary.json')
       @news = cricApires.jsonRead('./lib/cricket_api/json_data/news.json')
       @ballbyball = cricApires.jsonRead('./lib/cricket_api/json_data/ballbyball.json')
+      @match_ids = cricApires.match_ids
+      @match_response = cricApires.match_response(@match_ids)
       # binding.pry
     end
    

@@ -114,6 +114,45 @@ module CricApi
       # file.close
       return data_hash
     end
+    
+    
+    def match_ids
+      match_update = cricket
+      live_updates = matches
+      unique_ids = match_update['data']['data'].collect{ |v| v['unique_id'] }
+      all_matches = live_updates['data']['matches'].collect{ |v| v['unique_id']}
+      ongng_match_ids = []
+      remaining_match_ids = []
+      all_matches.each do |id|
+        matched = false
+        unique_ids.each do |uid|
+          if id == uid.to_i
+          matched = true
+          ongng_match_ids.push(uid.to_i)
+          end
+        end
+        if !matched
+        remaining_match_ids.push(id)
+        end
+      end
+
+      match_ids = {
+        "ongng_ids" => ongng_match_ids, 
+        "remaining_ids" => remaining_match_ids 
+      }
+            
+    end
+    
+    
+    def match_response(ids)
+      ongng_ids = ids['ongng_ids']
+      response = []
+      
+      ongng_ids.each do |id|
+        resp = cricketScore(id)
+        binding.pry
+      end
+    end
 
   end
 

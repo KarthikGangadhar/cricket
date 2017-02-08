@@ -1,6 +1,95 @@
 // // Place all the styles related to the cricket controller here.
 // // They will automatically be included in application.css.
 // // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// for news_page
+.cl-news-box {
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  width: 100%;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.cl-nws-lst {
+  width: 67%;
+  padding-left: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;  
+}
+
+.cl-nws-ttl {
+  padding-bottom: 5px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.cl-nws-intr {
+  color: #666;
+  padding-bottom: 5px;
+}
+
+.cl-nws-hdln-ancr {
+  padding-bottom: 5px;
+}
+
+//for schedules
+
+.cl-scdl-box{
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  width: 100%;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.cl-scdl-lst{ 
+  width: 100%;
+  padding-left: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px; 
+  background: #fff;
+  padding: 20px 0;
+}
+
+.cl-scdl-date{ 
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  width: 33%;
+}
+
+.cl-scdl-hdln{
+  font-size: 18px; 
+  line-height: 24px;
+}
+
+.cl-scdl-hdln-ancr {
+  padding-bottom: 5px;
+}
+
+.cl-scdl-cntr{
+  display: inline-block;
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  width: 67%;
+  padding-left: 10px;
+}
+
+.cl-scdl-intr{
+  color: #666;
+  padding-bottom: 5px;
+}
 // body {
   // background: #E3E6E3;
   // font-family: helvetica, "Segoe UI", Arial, sans-serif;
