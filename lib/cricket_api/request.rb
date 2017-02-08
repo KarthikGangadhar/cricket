@@ -146,12 +146,20 @@ module CricApi
     
     def match_response(ids)
       ongng_ids = ids['ongng_ids']
+      new_ids = ids['remaining_ids']
       response = []
+      new_resp = []
       
       ongng_ids.each do |id|
         resp = cricketScore(id)
-        binding.pry
+        response.push(resp['data'])
       end
+      
+      new_ids.each do |id|
+        resp = cricketScore(id)
+        new_resp.push(resp['data'])
+      end
+      return {:ongng => response, :new_resp => new_resp }
     end
 
   end
