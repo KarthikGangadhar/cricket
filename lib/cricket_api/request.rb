@@ -150,12 +150,25 @@ module CricApi
       response = []
       new_resp = []
       
-      ongng_ids.each do |id|
+      # ongng_ids.each do |id|
+      count = 0
+      for id in ongng_ids
+        count += 1 
         resp = cricketScore(id)
         response.push(resp['data'])
+        
+        if count >5
+          count = 0
+          break
+        end
       end
       
-      new_ids.each do |id|
+      for id in new_ids
+      # new_ids.each do |id|
+        count += 1 
+        if count >5
+          break
+        end
         resp = cricketScore(id)
         new_resp.push(resp['data'])
       end

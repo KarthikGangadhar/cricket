@@ -1,21 +1,46 @@
 <section id="livescores">
+	<% binding.pry %>
 	<div class="container ">
 		<div class="row text-center col-sm-10 col-sm-offset-1 green">
 			<h3>Live Scores</h3>
 		</div>
-		<div class="row col-sm-10 col-sm-offset-1">
-			live scores
+		<div class="row col-sm-10 col-sm-offset-1 black">			
+			<% @scores['ongng'].each do |ongng|  %>
+			<li class="cl-lst-mtch">
+				<div style="display:inline-block">
+
+					<div class="cl-nt-live cl-nt-today cl-mtch-all">
+						<a target="_self" href="#" title="South Africa v Sri Lanka,4th ODI - RSA Won"> <span class="cl-mm-mtch-tm"><%= "#{ongng['team-1'].html_safe}#{" vs "}#{ongng['team-2'].html_safe}" %></span> <span class="cl-mm-liv-tag"></span> </a>
+					</div>
+					<% if ongng['score'].present? %>
+					<div class="cl-scg-srs-nm">						
+						<%= ongng['score'].html_safe%>
+					</div>
+					<%end%>
+					<div class="cl-mm-mtch-nm">
+						<%= ongng['innings-requirement'].html_safe %>
+					</div>
+				</div>
+				</li>
+				<% end%>
 		</div>
+		
+		
 	</div>
+	</div>
+	<!-- @scores['ongng'][0]['innings-requirement']
+	@scores['ongng'][0]['score']
+	@scores['ongng'][0]['team-1']
+	@scores['ongng'][0]['team-2'] -->
 
 	<!-- panel -->
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			panel heading
-		</div>
-		<div class="panel-body">
-			panel-body
-		</div>
-
+	<!-- <div class="panel panel-default">
+	<div class="panel-heading">
+	panel heading
 	</div>
+	<div class="panel-body">
+	panel-body
+	</div>
+
+	</div> -->
 </section>
