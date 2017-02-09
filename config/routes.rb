@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ballbyball/show'
+
   get 'cricket/show'
 
   get 'home/show'

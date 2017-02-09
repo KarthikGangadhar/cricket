@@ -50,6 +50,8 @@ group :development do
   gem 'httparty'
   gem 'kaminari'
   gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
   
 end
 

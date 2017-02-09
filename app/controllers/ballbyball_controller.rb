@@ -1,7 +1,7 @@
 require './lib/cricket_api/request.rb'
 
-class HomeController < ApplicationController
-  def show
+class BallbyballController < ApplicationController
+   def show
     cricApires = CricApi::Request.new('https://cricketlive.herokuapp.com', 0)
     isOffline = true
     if !isOffline
@@ -21,7 +21,14 @@ class HomeController < ApplicationController
       @news = cricApires.jsonRead('./lib/cricket_api/json_data/news.json')
       @ballbyball = cricApires.jsonRead('./lib/cricket_api/json_data/ballbyball.json')
       # @match_ids = cricApires.match_ids
+      # binding.pry
       # @match_response = cricApires.match_response(@match_ids)
+      # parameter_file = File.new('liveupdate.txt', "w")
+      # parameter_file.puts(@match_response)
+      # binding.pry
+      @scores = cricApires.jsonRead('./lib/cricket_api/json_data/scores.json')
     end
+
   end
+
 end
