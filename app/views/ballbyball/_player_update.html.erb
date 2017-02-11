@@ -1,6 +1,6 @@
+<% isbatsman = false %>
+<% isbowler = false %>
 <%  for ball in @ballbyball['data']['data'] %>
-	<% isbatsman = false %>
-	<% isbowler = false %>
 	<% if !isbatsman %>
 	<div class="cb-min-inf cb-col-100 ng-scope" ng-if="match.miniscore.batsman">
 		<% if ball['batsman'] != nil %>

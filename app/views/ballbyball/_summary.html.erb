@@ -1,10 +1,14 @@
 <div class="cb-col-100 cb-col">
 	<%= render 'player_update' ,  @ballbyball %>
 	<%  @ballbyball['data']['data'].each do |ball| %>
+
+	<%= render 'over_details' ,  locals: {ball: ball} %>
+
+
 	<div class="cb-min-inf cb-col-100 ng-scope" ng-if="match.miniscore.bowler">
 		<% ball['ball'].each do |delivery| %>
 		<div id="comm_1485072283484" class="cb-col cb-col-100 ng-scope" ng-if="comm[ts].evt != 'over-break'">
-			<div ng-if="comm[ts].o_no != null || ( comm[ts].videoId != null &amp;&amp; comm[ts].evt.indexOf('Plugin') < 0)" class="cb-col cb-col-8 text-bold ng-scope">				
+			<div ng-if="comm[ts].o_no != null || ( comm[ts].videoId != null &amp;&amp; comm[ts].evt.indexOf('Plugin') < 0)" class="cb-col cb-col-8 text-bold ng-scope">
 				<div ng-bind="comm[ts].o_no" ng-if="comm[ts].o_no != null" title="Jan 22, 2017 1:34:43 PM" class="cb-mat-mnu-wrp cb-ovr-num ng-binding ng-scope">
 					<%= delivery['overs_actual'] %>
 				</div>

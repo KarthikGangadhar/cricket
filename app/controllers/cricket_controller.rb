@@ -1,4 +1,5 @@
 require './lib/cricket_api/request.rb'
+require 'cricapi_response.rb'
 
 class CricketController < ApplicationController
   def show
@@ -14,19 +15,23 @@ class CricketController < ApplicationController
       # @match_ids = cricApires.match_ids
       # @match_response = cricApires.match_response(@match_ids)
     else
-      @cricket = cricApires.jsonRead('./lib/cricket_api/json_data/cricket.json')
-      @matchCalendar = cricApires.jsonRead('./lib/cricket_api/json_data/schedule.json')
-      @playerStats = cricApires.jsonRead('./lib/cricket_api/json_data/playerStat.json')
-      @commentry = cricApires.jsonRead('./lib/cricket_api/json_data/commentary.json')
-      @news = cricApires.jsonRead('./lib/cricket_api/json_data/news.json')
-      @ballbyball = cricApires.jsonRead('./lib/cricket_api/json_data/ballbyball.json')
+      # @cricket = cricApires.jsonRead('./lib/cricket_api/json_data/cricket.json')
+      # @matchCalendar = cricApires.jsonRead('./lib/cricket_api/json_data/schedule.json')
+      # @playerStats = cricApires.jsonRead('./lib/cricket_api/json_data/playerStat.json')
+      # @commentry = cricApires.jsonRead('./lib/cricket_api/json_data/commentary.json')
+      # @news = cricApires.jsonRead('./lib/cricket_api/json_data/news.json')
+      # @ballbyball = cricApires.jsonRead('./lib/cricket_api/json_data/ballbyball.json')
       # @match_ids = cricApires.match_ids
       # binding.pry
       # @match_response = cricApires.match_response(@match_ids)
       # parameter_file = File.new('liveupdate.txt', "w")
       # parameter_file.puts(@match_response)
+      
+      # @scores = cricApires.jsonRead('./lib/cricket_api/json_data/scores.json')
+      request = CricApi::ProfessionalProfile.new().getResponse
+      @news = request[:news]
       # binding.pry
-      @scores = cricApires.jsonRead('./lib/cricket_api/json_data/scores.json')
+      @matchCalendar = request[:matchcalendar]
     end
 
   end

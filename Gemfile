@@ -52,7 +52,7 @@ group :development do
   gem 'pry'
   gem 'pry-nav'
   gem 'pry-rails'
-  
+  gem 'typhoeus'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
