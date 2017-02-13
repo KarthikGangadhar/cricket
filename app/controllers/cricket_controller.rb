@@ -30,8 +30,8 @@ class CricketController < ApplicationController
       # @scores = cricApires.jsonRead('./lib/cricket_api/json_data/scores.json')
       request = CricApi::ProfessionalProfile.new().getResponse
       @news = request[:news]
-      # binding.pry
       @matchCalendar = request[:matchcalendar]
+      @cricket = request[:cricket]
     end
 
   end
