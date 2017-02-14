@@ -2,25 +2,25 @@
 <% isbowler = false %>
 <%  for ball in @ballbyball['data']['data'] %>
 	<% if !isbatsman %>
-	<div class="cb-min-inf cb-col-100 ng-scope" ng-if="match.miniscore.batsman">
+	<div class="cl-min-inf">
 		<% if ball['batsman'] != nil %>
-		<div class="cb-col cb-col-100 cb-min-hdr-rw cb-bg-gray">
-			<div class="cb-col cb-col-50">
+		<div class="cl-min-hdr-rw">
+			<div class="cl-txt-50">
 				Batsman
 			</div>
-			<div class="cb-col cb-col-10 text-right">
+			<div class="cl-txt-10">
 				R
 			</div>
-			<div class="cb-col cb-col-10 text-right">
+			<div class="cl-txt-10">
 				B
 			</div>
-			<div class="cb-col cb-col-8 text-right">
+			<div class="cl-txt-8">
 				4s
 			</div>
-			<div class="cb-col cb-col-8 text-right">
+			<div class="cl-txt-8">
 				6s
 			</div>
-			<div class="cb-col cb-col-14 text-right">
+			<div class="cl-txt-14">
 				SR
 			</div>
 		</div>
@@ -31,23 +31,23 @@
 		<% if ball['batsman'] != nil %>
 		<% ball['batsman'].each do |batsman| %>
 
-		<div class="cb-col cb-col-100 cb-min-itm-rw ng-scope" ng-repeat="batsmen in match.miniscore.batsman">
-			<div class="cb-col cb-col-50">
-				<a class="cb-text-link ng-binding" ng-href="/profiles/10694/henry-nicholls" ng-bind="batsmen.full_name" href="/profiles/10694/henry-nicholls"><%= getPlayerName(@ballbyball, batsman['old_player_id'] ) %></a>
+		<div class="cl-min-itm-rw">
+			<div class="cl-txt-50">
+				<a class="cl-text-link" href="/profiles/10694/henry-nicholls"><%= getPlayerName(@ballbyball, batsman['old_player_id'] ) %></a>
 			</div>
-			<div class="cb-col cb-col-10 ab text-right ng-binding" ng-bind="batsmen.r">
+			<div class="cl-btmn-data-10">
 				<%= batsman['runs']%>
 			</div>
-			<div class="cb-col cb-col-10 ab text-right ng-binding" ng-bind="batsmen.b">
+			<div class="cl-btmn-data-10" >
 				<%= batsman['balls_faced']%>
 			</div>
-			<div class="cb-col cb-col-8 ab text-right ng-binding" ng-bind="batsmen['4s']">
+			<div class="cl-btmn-data-8" >
 				<%= batsman['fours']%>
 			</div>
-			<div class="cb-col cb-col-8 ab text-right ng-binding" ng-bind="batsmen['6s']">
+			<div class="cl-btmn-data-8" >
 				<%= batsman['sixes']%>
 			</div>
-			<div class="cb-col cb-col-14 text-right ng-binding" ng-bind="batsmen.sr">
+			<div class="cl-txt-14" >
 				<%if batsman['balls_faced'].to_i != 0 %>
 				<%= ((batsman['runs'].to_f / batsman['balls_faced'].to_f) *100).to_i %>
 				<% else %>
@@ -68,25 +68,25 @@
 
 	<% if !isbowler %>
 	<!-- bowler -->
-	<div class="cb-min-inf cb-col-100 ng-scope" ng-if="match.miniscore.bowler">
+	<div class="cl-min-inf" ng-if="">
 		<% if ball['bowler'] != nil %>
-		<div class="cb-col cb-col-100 cb-min-hdr-rw cb-bg-gray">
-			<div class="cb-col cb-col-50">
+		<div class="cl-min-hdr-rw">
+			<div class="cl-txt-50">
 				Bowler
 			</div>
-			<div class="cb-col cb-col-10 text-right">
+			<div class="cl-txt-10">
 				O
 			</div>
-			<div class="cb-col cb-col-8 text-right">
+			<div class="cl-txt-8">
 				M
 			</div>
-			<div class="cb-col cb-col-10 text-right">
+			<div class="cl-txt-10">
 				R
 			</div>
-			<div class="cb-col cb-col-8 text-right">
+			<div class="cl-txt-8">
 				W
 			</div>
-			<div class="cb-col cb-col-14 text-right">
+			<div class="cl-txt-14">
 				ECO
 			</div>
 		</div>
@@ -95,23 +95,23 @@
 		<% if ball['bowler'] != nil %>
 		<% for bowler in ball['bowler'] %>
 
-		<div class="cb-col cb-col-100 cb-min-itm-rw ng-scope" ng-repeat="bowler in match.miniscore.bowler">
-			<div class="cb-col cb-col-50">
-				<a class="cb-text-link ng-binding" ng-href="/profiles/8224/kamrul-islam-rabbi" ng-bind="bowler.full_name" href="/profiles/8224/kamrul-islam-rabbi"><%= getPlayerName(@ballbyball, bowler['old_player_id'] ) %></a>
+		<div class="cl-min-itm-rw">
+			<div class="cl-txt-50">
+				<a class="cl-text-link" href="/profiles/8224/kamrul-islam-rabbi"><%= getPlayerName(@ballbyball, bowler['old_player_id'] ) %></a>
 			</div>
-			<div class="cb-col cb-col-10 text-right ng-binding" ng-bind="bowler.o">
+			<div class="cl-txt-10">
 				<%= bowler['overs']%>
 			</div>
-			<div class="cb-col cb-col-8 text-right ng-binding" ng-bind="bowler.m">
+			<div class="cl-txt-8">
 				<%= bowler['maidens']%>
 			</div>
-			<div class="cb-col cb-col-10 text-right ng-binding" ng-bind="bowler.r">
+			<div class="cl-txt-10" >
 				<%= bowler['conceded']%>
 			</div>
-			<div class="cb-col cb-col-8 text-right ng-binding" ng-bind="bowler.w">
+			<div class="cl-txt-8" >
 				<%= bowler['wickets']%>
 			</div>
-			<div class="cb-col cb-col-14 text-right ng-binding" ng-bind="bowler.er">
+			<div class="cl-txt-14">
 				<% if bowler['overs'].to_i != 0%>
 				<%= (bowler['conceded'].to_f / bowler['overs'].to_f ).round(1) %>
 				<% else %>
