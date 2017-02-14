@@ -14,7 +14,10 @@
 				</div>
 			</div>
 			<p class="cl-com-ln">
-				<%= delivery['players'] %>,	<%= delivery['text'].html_safe %>
+				<%= "#{delivery['players']}, #{delivery['event'].html_safe} " %> 
+				<% if delivery['event'] == "OUT"%>
+				<b><%= delivery['dismissal'].html_safe%> </b>
+				<% end %>
 			</p>
 		</div>
 		<% end %>
@@ -46,7 +49,6 @@
 			<!-- redundant required-->
 			<!-- need to loop-->
 			<%  team['player'].each do |player| %>
-
 			<div class="cl-scrd-itms">
 				<div class="cl-col-27">
 					<a href="/profiles/8934/samit-gohel" title="View profile of Samit Gohel" class="cl-text-link"> <%= player['known_as'] %> </a>
@@ -55,7 +57,11 @@
 					<span class="text-gray"></span><%= player['player_primary_role'] %>
 				</div>
 				<div class="cl-col-8">
+					<% if player['age_years'].to_i < 100 %>
 					<%= player['age_years'] %>
+					<% else %>
+					   -
+					<% end %>
 				</div>
 
 			</div>
