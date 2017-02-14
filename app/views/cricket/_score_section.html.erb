@@ -7,7 +7,9 @@
 			<% @cricket['data']['data'].each do |match|  %>
 				<div class="col-sm-6 cl-match-box">
 					<%= match['description'].html_safe %>
+					<%= link_to "More" , {:controller => "ballbyball", :action => "show", :unique_id => match['unique_id'].to_s }  %>
 				</div>
+				
 			<% end%>		
 		</div>
 	</div>

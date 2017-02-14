@@ -28,7 +28,7 @@ class CricketController < ApplicationController
       # parameter_file.puts(@match_response)
       
       # @scores = cricApires.jsonRead('./lib/cricket_api/json_data/scores.json')
-      request = CricApi::ProfessionalProfile.new().getResponse
+      request = CricApi::ProfessionalProfile.new().getResponseforHome
       @news = request[:news]
       @matchCalendar = request[:matchcalendar]
       @cricket = request[:cricket]
