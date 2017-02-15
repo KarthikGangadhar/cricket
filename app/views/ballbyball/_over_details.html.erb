@@ -1,55 +1,38 @@
-<!--  over summary -->
-
-	<div class="cb-com-ovr-sum cb-col cb-col-100 ng-scope bg-light-gray" ng-if="comm[ts].evt == 'over-break'">
-		<div id="plugin_container_1486802591768" class="cb-col cb-col-100 cb-com-ovr-sum-ad ad-native ng-isolate-scope" ad-direct-call="true" ad-loaded="false" ad-has-default="true" ad-repetitive-index="native_commentary_plugin" ad-content="<a href=&quot;[[clk]]&quot; target=&quot;_blank&quot; rel =&quot;nofollow&quot; timestamp=&quot;1486802591768&quot; class=&quot;ad-plugin cb-comm-static-anchr cb-comm-static-anchr well well-sm col-xs-12 col-md-12 cb-ovr-brk-well cb-font-14&quot;>[[title]]<img src=&quot;[[logo]]&quot; class=&quot;pull-right&quot;/></a>">
-			<a href="" id="plugin_1486802591768" class="ad-plugin cb-comm-static-anchr cb-comm-static-anchr cb-text-link" timestamp="1486802591768" target="_blank"></a>
-		</div><!-- ngIf: comm[ts].o_no != null -->
-		<div ng-if="comm[ts].o_no != null" class="cb-col cb-col-100 cb-com-ovr-sum-rw cb-font-12 ng-scope">
-			<div class="cb-col cb-col-8 cb-com-ovr-sum-itm cb-font-18 text-bold ng-binding" ng-bind="comm[ts].o_no" style="min-height:33px;">
-				<% binding.pry %>
-				<%= ball['over_number']%>
-			</div>
-			<div class="cb-col cb-col-25 cb-com-ovr-sum-itm">
-			</div>
-			<div class="cb-col cb-col-25 cb-com-ovr-sum-itm">
-				<div ng-bind="'Score after ' + comm[ts].o_no + ' overs'" class="ng-binding">
-					Score after <%= ball['over_number']%> overs
-				</div>
-				<div class="text-bold ng-binding" ng-bind="comm[ts].bt_tm_name + ' ' + comm[ts].score + '-' + comm[ts].wkts">
-					 <%= "#{ball['runs']}-#{ball['wickets']}" %>
-				</div>
-			</div>
-			<div class="cb-col cb-col-25 cb-com-ovr-sum-itm">
-				<!-- ngRepeat: batsman in comm[ts].batsman -->
-				<div ng-repeat="batsman in comm[ts].batsman" class="ng-scope">
-					<div class="cb-col cb-col-67 ng-binding" ng-bind="batsman.name">
-						Mehedi Hasan
-					</div>
-					<div class="cb-col cb-col-33 text-right ng-binding" ng-bind="' ' + batsman.r + '(' + batsman.b +')'">
-						9(10)
-					</div>
-				</div><!-- end ngRepeat: batsman in comm[ts].batsman -->
-				<div ng-repeat="batsman in comm[ts].batsman" class="ng-scope">
-					<div class="cb-col cb-col-67 ng-binding" ng-bind="batsman.name">
-						Rahim
-					</div>
-					<div class="cb-col cb-col-33 text-right ng-binding" ng-bind="' ' + batsman.r + '(' + batsman.b +')'">
-						47(119)
-					</div>
-				</div><!-- end ngRepeat: batsman in comm[ts].batsman -->
-			</div>
-			<div class="cb-col cb-col-17 cb-com-ovr-sum-itm">
-				<!-- ngRepeat: bowler in comm[ts].bowler -->
-				<div ng-repeat="bowler in comm[ts].bowler" class="ng-scope">
-					<div ng-bind="bowler.name" title="U Yadav" class="ng-binding">
-						U Yadav
-					</div>
-					<div ng-bind="' ' + bowler.o + '-' + bowler.m + '-'+ bowler.r + '-'+ bowler.w" class="ng-binding">
-						15-2-61-2
-					</div>
-				</div><!-- end ngRepeat: bowler in comm[ts].bowler -->
-			</div>
-		</div><!-- end ngIf: comm[ts].o_no != null -->
+<div class="cl-com-ovr-sum-rw bg-light-gray">
+	<div class="cl-com-ovr-sum-itm-8" style="min-height:33px;">
+		<%= locals[:ball]["over_number"] %>
 	</div>
-	
-<!--  over summary ends -->
+	<div class="cl-com-ovr-sum-itm-25">
+		<div>
+			Runs Scored: <span class="cl-text-bold" ><%= locals[:ball]["event_string"] %></span>
+		</div>
+	</div>
+	<div class="cl-com-ovr-sum-itm-25">
+			Score after <%= locals[:ball]["over_number"] %> overs
+		<div class="cl-text-bold" >
+			 <%= getTeamName( locals[:ballbyball] , locals[:ball]['team_id'])%> <%= locals[:ball]["runs"] %>-<%= locals[:ball]["wickets"]%>
+		</div>
+	</div>
+	<div class="cl-com-ovr-sum-itm-25">
+		<% if locals[:ball]['batsman'].present? %>
+		<% locals[:ball]['batsman'].each do |batsman|%>
+			<div class="cl-col-67">
+				<%= getPlayerName(locals[:ballbyball], batsman['pid'])%>
+			</div>
+			<div class="cl-col-binding">
+				<%= batsman['runs'] %>(<%= batsman['balls_faced'] %>)
+			</div>
+		<% end %>
+		<% end %>
+	</div>
+	<div class="cl-com-ovr-sum-itm-17">
+		<% if locals[:ball]['bowler'].present? %>
+		<% locals[:ball]['bowler'].each do |bowler|%>
+			<% if bowler['live_current_name'].upcase == "CURRENT BOWLER"%>
+			<div><%= getPlayerName(locals[:ballbyball], bowler['pid']) %></div>
+			<div><%= locals[:ball]['bowler'][0]['overs'] %>-<%= locals[:ball]['bowler'][0]['maidens'] %>-<%= locals[:ball]['bowler'][0]['wickets'] %>-<%= locals[:ball]['bowler'][0]['conceded'] %></div>
+			<% end %>
+		<% end %>	
+		<% end %>	
+	</div>
+</div>

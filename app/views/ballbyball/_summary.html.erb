@@ -1,7 +1,8 @@
 <div class="cl-col-100">
 	<%= render 'player_update' ,  @ballbyball %>
 	<%  @ballbyball['data']['data'].each do |ball| %>
-
+	
+	<%= render 'over_details',  locals: { ball: ball , ballbyball: @ballbyball} %>
 	<div class="cl-min-inf" >
 		<% ball['ball'].each do |delivery| %>
 		<% if delivery['pre_text'].present? && strip_tags(delivery['pre_text']).upcase == "\nUPDATES ONLY\n" %>
