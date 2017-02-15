@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'playerstat/show'
+
   get 'ballbyball/show'
 
   get 'cricket/show'
