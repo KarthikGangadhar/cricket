@@ -18,7 +18,7 @@ module BallbyballHelper
     team_name = ""
     ballbyball['data']['team'].each do |team|
         if team['team_id'] == tid
-          team_name = team['team_name']
+          team_name = team['team_filename']
         end
     end
     return team_name
