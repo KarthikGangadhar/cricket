@@ -61,7 +61,9 @@
 			<%  team['player'].each do |player| %>
 			<div class="cl-scrd-itms">
 				<div class="cl-col-27">
-					<a href="/profiles/8934/samit-gohel" title="View profile of Samit Gohel" class="cl-text-link"> <%= player['known_as'] %> </a>
+						<!-- player['object_id'] -->
+						<% player_name = player['known_as']%>
+						<%= link_to player_name , {:controller => "playerstat", :action => "show", :pid => player['object_id']  }  %>
 				</div>
 				<div class="cl-col-33">
 					<span class="text-gray"></span><%= player['player_primary_role'] %>

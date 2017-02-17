@@ -33,7 +33,8 @@
 
 		<div class="cl-min-itm-rw">
 			<div class="cl-txt-50">
-				<a class="cl-text-link" href="/profiles/10694/henry-nicholls"><%= getPlayerName(@ballbyball, batsman['old_player_id'] ) %></a>
+				<% player_name = getPlayerName(@ballbyball, batsman['old_player_id'] ) %>
+				<%= link_to player_name , {:controller => "playerstat", :action => "show", :pid => batsman['pid']  }  %>
 			</div>
 			<div class="cl-btmn-data-10">
 				<%= batsman['runs']%>
@@ -97,7 +98,8 @@
 
 		<div class="cl-min-itm-rw">
 			<div class="cl-txt-50">
-				<a class="cl-text-link" href="/profiles/8224/kamrul-islam-rabbi"><%= getPlayerName(@ballbyball, bowler['old_player_id'] ) %></a>
+				<% player_name = getPlayerName(@ballbyball, bowler['old_player_id'] ) %>
+				<%= link_to player_name , {:controller => "playerstat", :action => "show", :pid => bowler['pid']  }  %>
 			</div>
 			<div class="cl-txt-10">
 				<%= bowler['overs']%>

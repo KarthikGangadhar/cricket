@@ -18,7 +18,7 @@
 		<% if locals[:ball]['batsman'].present? %>
 		<% locals[:ball]['batsman'].each do |batsman|%>
 			<div class="cl-col-67">
-				<%= getPlayerName(locals[:ballbyball], batsman['pid'])%>
+				<%= getPlayerForOverUpdate(locals[:ballbyball], batsman['pid'])%>
 			</div>
 			<div class="cl-col-binding">
 				<%= batsman['runs'] %>(<%= batsman['balls_faced'] %>)
@@ -30,7 +30,7 @@
 		<% if locals[:ball]['bowler'].present? %>
 		<% locals[:ball]['bowler'].each do |bowler|%>
 			<% if bowler['live_current_name'].upcase == "CURRENT BOWLER"%>
-			<div><%= getPlayerName(locals[:ballbyball], bowler['pid']) %></div>
+			<div><%= getPlayerForOverUpdate(locals[:ballbyball], bowler['pid']) %></div>
 			<div><%= locals[:ball]['bowler'][0]['overs'] %>-<%= locals[:ball]['bowler'][0]['maidens'] %>-<%= locals[:ball]['bowler'][0]['wickets'] %>-<%= locals[:ball]['bowler'][0]['conceded'] %></div>
 			<% end %>
 		<% end %>	
