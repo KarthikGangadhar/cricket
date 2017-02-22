@@ -1,4 +1,21 @@
+<style>
+#team_details {
+    padding: 75px 0 !important;
+}
+.title {
+	width: 104% !important;
+    left: -4% !important;
+}
+
+#live_updates {
+	padding: 75px 0 !important;
+}
+</style>
 <div class="cl-col-100">
+	<div id="live_updates">
+	<div class="col-sm-12 green title" align="center" >
+		<h4><%= @cricketScore['data']['team-1'] + " VS "+ @cricketScore['data']['team-2'] %></h4>	
+	</div>
 	<%= render 'player_update' ,  @ballbyball %>
 	<%  @ballbyball['data']['data'].each do |ball| %>
 	<% if !ball['ball'].first['pre_text'].present? || strip_tags(ball['ball'].first['pre_text']).upcase != "\nUPDATES ONLY\n" %>
@@ -24,7 +41,8 @@
 				</div>
 			</div>
 			<p class="cl-com-ln">
-				<%= "#{delivery['players']}, #{delivery['event'].html_safe} " %> 
+				<!-- <%= "#{delivery['players']}, #{delivery['event'].html_safe} " %>  -->
+				<%= "#{delivery['players']}, #{delivery['event'].html_safe}. #{delivery['text'].html_safe} " %>
 				<% if delivery['event'] == "OUT"%>
 				<b><%= delivery['dismissal'].html_safe%> </b>
 				<% end %>
@@ -36,9 +54,12 @@
 	</div>
 
 	<% end %>
+	</div>
+	
 	<div>
 
 		<!-- loop through team-->
+		<div id="team_details">
 		<%  @ballbyball['data']['team'].each do |team| %>
 		<!-- redundant required-->
 		<div class="cl-ltst-wgt-hdr">
@@ -82,4 +103,5 @@
 			<!-- end of loop -->
 		</div>
 		<% end %>
+		</div>
 		<!-- end of team loop -->
