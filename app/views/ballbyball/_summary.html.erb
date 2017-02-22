@@ -16,22 +16,20 @@
 	<div class="col-sm-12 green title" align="center" >
 		<h4><%= @cricketScore['data']['team-1'] + " VS "+ @cricketScore['data']['team-2'] %></h4>	
 	</div>
-	<%= render 'player_update' ,  @ballbyball %>
+	<% is_added = false %>
 	<%  @ballbyball['data']['data'].each do |ball| %>
 	<% if !ball['ball'].first['pre_text'].present? || strip_tags(ball['ball'].first['pre_text']).upcase != "\nUPDATES ONLY\n" %>
+	<% if !is_added %>
+	<%= render 'live_score' ,  @cricketScore %>
+	<%= render 'player_update' ,  @ballbyball %>
+	<% is_added = true%>
+	<% end %>
 	<%= render 'over_details',  locals: { ball: ball , ballbyball: @ballbyball} %>	
 	<% end %>
 	<div class="cl-min-inf" >
 		<% ball['ball'].each do |delivery| %>
 		<% if delivery['pre_text'].present? && strip_tags(delivery['pre_text']).upcase == "\nUPDATES ONLY\n" %>
-			<div class="cl-col-100">
-				<div class="cl-com-ln">	
-					<%= @cricketScore['data']['score'].html_safe%>
-				</div>
-				<div class="cl-com-ln">	
-					<%= @cricketScore['data']['innings-requirement'].html_safe %>
-				</div>	
-			</div>
+			<%= render 'live_score' ,  @cricketScore %>
 			<h2> <%= delivery['pre_text'].html_safe %> </h2>
 		<% else %>
 		<div id="comm_1485072283484" class="cl-col-100" >
