@@ -4,7 +4,7 @@ require 'json'
 module CricApi
   class Request
     include HTTParty
-    base_uri 'https://cricketlive.herokuapp.com'
+    base_uri 'https://apecricket.herokuapp.com'
     def initialize(service, page)
       @options = { query: {site: service, page: page} }
     end

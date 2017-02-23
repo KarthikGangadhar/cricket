@@ -11,13 +11,13 @@ module CricApi
 
     def getResponseforHome                        
       api_requests = {
-        :news => Typhoeus::Request.new("https://cricketlive.herokuapp.com/api/news",
+        :news => Typhoeus::Request.new("https://apecricket.herokuapp.com/api/news",
                                 method: :get,
                                 headers: { 'ContentType' => "application/json/"}),
-        :matchcalendar => Typhoeus::Request.new("https://cricketlive.herokuapp.com/api/matchCalendar",
+        :matchcalendar => Typhoeus::Request.new("https://apecricket.herokuapp.com/api/matchCalendar",
                                 method: :get,
                                 headers: { 'ContentType' => "application/json"}),
-        :cricket => Typhoeus::Request.new("https://cricketlive.herokuapp.com/api/cricket",
+        :cricket => Typhoeus::Request.new("https://apecricket.herokuapp.com/api/cricket",
                                 method: :get,
                                 headers: { 'ContentType' => "application/json"})
       }
@@ -42,11 +42,11 @@ module CricApi
     
 def getResponseforBallbyBall(unique_id)                        
       api_requests = {
-        :ballbyball => Typhoeus::Request.new("http://cricketlive.herokuapp.com/api/ballByBall",
+        :ballbyball => Typhoeus::Request.new("http://apecricket.herokuapp.com/api/ballByBall",
                                 method: :post,
                                 headers: { 'ContentType' => "application/json/"},
                                 body: {unique_id: unique_id.to_s } ),
-        :cricketScore => Typhoeus::Request.new("http://cricketlive.herokuapp.com/api/cricketScore",
+        :cricketScore => Typhoeus::Request.new("http://apecricket.herokuapp.com/api/cricketScore",
                                 method: :post,
                                 headers: { 'ContentType' => "application/json"},
                                 body: {unique_id: unique_id.to_s } )

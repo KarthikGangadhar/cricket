@@ -4,7 +4,7 @@ require 'cricapi_response.rb'
 class BallbyballController < ApplicationController
    def show
     unique_id =  params[:unique_id]
-    cricApires = CricApi::Request.new('https://cricketlive.herokuapp.com', 0)
+    cricApires = CricApi::Request.new('https://apecricket.herokuapp.com', 0)
     isOffline = false
     if !isOffline
       # @cricket = cricApires.cricket

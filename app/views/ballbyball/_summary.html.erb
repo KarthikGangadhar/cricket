@@ -17,6 +17,7 @@
 		<h4><%= @cricketScore['data']['team-1'] + " VS "+ @cricketScore['data']['team-2'] %></h4>	
 	</div>
 	<% is_added = false %>
+	<% if @ballbyball['data']['data'].present? %>
 	<%  @ballbyball['data']['data'].each do |ball| %>
 	<% if !ball['ball'].first['pre_text'].present? || strip_tags(ball['ball'].first['pre_text']).upcase != "\nUPDATES ONLY\n" %>
 	<% if !is_added %>
@@ -30,7 +31,6 @@
 		<% ball['ball'].each do |delivery| %>
 		<% if delivery['pre_text'].present? && strip_tags(delivery['pre_text']).upcase == "\nUPDATES ONLY\n" %>
 			<%= render 'live_score' ,  @cricketScore %>
-			<h2> <%= delivery['pre_text'].html_safe %> </h2>
 		<% else %>
 		<div id="comm_1485072283484" class="cl-col-100" >
 			<div class="cl-bold-8">
@@ -52,10 +52,11 @@
 	</div>
 
 	<% end %>
+	<% end %>
 	</div>
 	
 	<div>
-
+		<% if @ballbyball['data']['team'].present? %>
 		<!-- loop through team-->
 		<div id="team_details">
 		<%  @ballbyball['data']['team'].each do |team| %>
@@ -100,6 +101,7 @@
 			<%end%>
 			<!-- end of loop -->
 		</div>
+		<% end %>
 		<% end %>
 		</div>
 		<!-- end of team loop -->
