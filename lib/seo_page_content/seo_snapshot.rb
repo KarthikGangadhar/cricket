@@ -105,12 +105,16 @@ module SeoPageContent
     end
 
     def subsitute_defaults(item)
-      if (!@agent_data.nil? && @agent_data['score'].present?)
-        item = item.gsub('[MATCHDETAIL]', @agent_data['score'])
-      else
-        item = item.gsub('[MATCHDETAIL]', @agent_data['innings-requirement'])
+      if @agent_data.present?
+        if @agent_data['score'].present?
+          item = item.gsub('[MATCHDETAIL]', @agent_data['score'])
+        elsif @agent_data['fullName'].present?
+          item = item.gsub('[MATCHDETAIL]', @agent_data['fullName'])
+        else
+          item = item.gsub('[MATCHDETAIL]', @agent_data['innings-requirement'])
+        end
       end
-
+      
       item
     end
 
