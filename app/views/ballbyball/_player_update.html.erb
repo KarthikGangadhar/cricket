@@ -1,5 +1,8 @@
 <% isbatsman = false %>
 <% isbowler = false %>
+
+<% if @ballbyball.present? && @ballbyball['data'].present? && @ballbyball['data']['data'].present? %>
+
 <%  for ball in @ballbyball['data']['data'] %>
 	<% if !isbatsman %>
 	<div class="cl-min-inf">
@@ -130,3 +133,4 @@
 	<!-- bolwer loop ends -->
 	<!-- end bowler -->
 	<% end %>
+<% end %>

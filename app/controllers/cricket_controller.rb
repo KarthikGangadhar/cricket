@@ -10,5 +10,8 @@ class CricketController < ApplicationController
       }
       @matchCalendar = request[:matchcalendar]
       @cricket = request[:cricket]
+      @matches = request[:matches]
+      # @liveUpdate = CricApi::ProfessionalProfile.new().getLiveUpdates(@cricket , @matches)
+      @liveUpdate = CricApi::ProfessionalProfile.new().getAllScore(@cricket)
   end
 end
