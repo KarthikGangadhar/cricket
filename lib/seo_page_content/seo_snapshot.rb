@@ -109,7 +109,7 @@ module SeoPageContent
         if @agent_data['score'].present?
           item = item.gsub('[MATCHDETAIL]', @agent_data['score'])
         elsif @agent_data['fullName'].present?
-          item = item.gsub('[MATCHDETAIL]', @agent_data['fullName'])
+          item = item.gsub('[MATCHDETAIL]', @agent_data['name'])
         else
           item = item.gsub('[MATCHDETAIL]', @agent_data['innings-requirement'])
         end

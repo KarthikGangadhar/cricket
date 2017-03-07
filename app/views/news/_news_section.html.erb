@@ -1,3 +1,37 @@
+<style>
+.btn{
+	display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+} 
+
+.btn-plain {
+	border: 1px solid #ccc;
+    background-color: #fff;
+    font-weight: bold;
+    color: #d92228;
+} 
+
+</style>
+<!-- <script>
+	$('#prop_load_more').on('click', function(){
+	alert("loading...");
+});
+</script> -->
 <section id="news">
 	<div class="container">
 		<div class="row text-center col-sm-10 col-sm-offset-1 green">
@@ -17,7 +51,11 @@
 				</div>
 
 			</div>
+			<div id="news_load_more" data-news-list="<%= @news['data'].to_json %>"></div>
 			<% end %>
+			<div align="center" >
+			<button type="button" id="prop_load_more" class="btn btn-plain load-more-button">Load More News</button>
+			</div>	
 		</div>
 	</div>
 </section>
