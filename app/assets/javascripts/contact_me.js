@@ -70,3 +70,15 @@ $(function() {
 $('#name').focus(function() {
     $('#success').html('');
 });
+
+$('#prop_load_more').on('click', function(){
+	debugger;
+	var news_length = $('.cl-nws-lst').length;
+	slicer_length = 4;
+	displayed_length = $('.cl-nws-lst.show').length;
+	hidden_content_length = $('.cl-nws-lst.hide').length;
+	if (news_length > slicer_length && hidden_content_length > 0){
+		
+	}
+	
+});
